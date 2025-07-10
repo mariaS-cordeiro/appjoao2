@@ -12,21 +12,21 @@ st.markdown("### Preencha as informações da anotação:")
 
 # Campos do formulário
 nome_disciplina = st.text_input("📚 Nome da disciplina", key="disciplina", placeholder="Ex: Comunicação Acessível")
-tematica = st.text_input("🎯 Temática da disciplina", key="tematica", placeholder="Ex: Recursos Inclusivos")
+tematica = st.text_input("🎯 Temática da disciplina", key="tematica", placeholder="Ex: anotar")
 data = st.date_input("📅 Data", key="data", value=datetime.today())
 
 # Upload de imagem
-st.markdown("### 📷 Envie uma foto (opcional)")
+st.markdown("### 📷 Envie uma foto")
 foto = st.file_uploader("Upload da imagem", type=["jpg", "jpeg", "png"], key="foto")
 
 # Área de anotação com fonte grande
 st.markdown("### 🗒️ Anotações")
-anotacoes = st.text_area("Digite aqui suas anotações:", height=200, key="anotacoes",
+anotacoes = st.text_area("Digite aqui suas anotações:", height=400, key="anotacoes",
                          placeholder="Escreva com tranquilidade...", help="Espaço acessível para escrever",
                          label_visibility="collapsed")
 
 # Gravação de áudio
-st.markdown("### 🎤 Grave um áudio (opcional)")
+st.markdown("### 🎤 Grave um áudio")
 audio = st.file_uploader("Gravação de áudio", type=["mp3", "wav", "m4a"], key="audio")
 
 # Criar pasta para arquivos
@@ -94,4 +94,3 @@ if os.path.exists("anotacoes_salvas/registros.csv"):
     st.write(df.to_html(escape=False, index=False), unsafe_allow_html=True)
 else:
     st.info("Nenhuma anotação salva ainda.")
-
